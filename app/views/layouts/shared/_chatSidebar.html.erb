@@ -1,0 +1,39 @@
+<% if local_assigns.has_key? :room_id %>
+  <% room = room_id %>
+<% else %>
+  <% room = nil %>
+<% end %>
+
+<div class="col-12 col-lg-5 col-xl-3 border-right max-height scroll-right">
+    <div class="px-4 d-none d-md-block">
+        <div class="d-flex align-items-center">
+            <div class="flex-grow-1">
+                <input type="text" class="form-control my-3" placeholder="Search...">
+            </div>
+        </div>
+    </div>
+
+    <% if users.length > 0 %>
+        <% users.each_with_index do |user| %>
+            <% user_selected = (user.id.to_s === room) ? "selected" : nil %>
+            <a href="<%= chat_room_path(user) %>" class="list-group-item list-group-item-action border-0 <%= user_selected %>">
+                <!-- 
+                    <div class="badge bg-success float-right">5</div>
+                -->
+                <div class="d-flex align-items-start">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
+                    <div class="flex-grow-1 ml-3">
+                        <%= user.username %>
+                        <!-- 
+                            <div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
+                        -->
+                    </div>
+                </div>
+            </a>
+        <% end %>
+    <% else %>
+        <h4 class="text-center"> No Users Available </h4>
+    <% end %>
+    
+    <hr class="d-block d-lg-none mt-1 mb-0">
+</div>

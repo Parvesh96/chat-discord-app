@@ -1,0 +1,19 @@
+<div class="container p-0">
+    <div class="card mt-4">
+        <div class="row g-0">
+            <%= 
+                render 'layouts/shared/chatSidebar',
+                users: @users
+            %>
+            <div class="col-12 col-lg-7 col-xl-9 max-height">
+                <div class="py-2 px-4 d-none d-lg-block">
+
+                </div>
+                <div class="position-relative">
+                    <!-- Chat Messages Rendering-->
+                    <div class="chat-messages p-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
